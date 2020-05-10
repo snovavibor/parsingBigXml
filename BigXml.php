@@ -179,7 +179,7 @@ public static function makeTempSmallXmlFiles($arr,$company_name)
     /**
      * на каждой итерации цикла формируется
      * файл xml содержащий ранее определенное
-     * количество товаров тэга offer  
+     * количество товаров тэга name3 
      * (ранее был разбит массив на подмассивы chunks)
      */
     foreach($chunks as $off){
@@ -203,20 +203,20 @@ public static function makeTempSmallXmlFiles($arr,$company_name)
         fwrite($filename, "<company>{$company}</company>\n");
         fwrite($filename, "<url>https://path...</url>\n");
     
-        //рисуется отдел currencies
+        //рисуется отдел name1
         foreach($arr['name1'] as $curr){
             
             fwrite($filename, $curr);
         }
 
-        //рисуется отдел categories
+        //рисуется отдел name2
         foreach($arr['name2'] as $cat){
             
             fwrite($filename, $cat);
         }
         
 
-        fwrite($filename, "<offers>\n");
+        fwrite($filename, "<items>\n");
 
         //рисуется отдел с товарами
         foreach($off as $offer){
@@ -225,7 +225,7 @@ public static function makeTempSmallXmlFiles($arr,$company_name)
             
         }
         
-        fwrite($filename, "</offers>\n");
+        fwrite($filename, "</items>\n");
 
         fwrite($filename,"</shop>\n");
         fwrite($filename, "</yml_catalog>");
